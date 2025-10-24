@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .glowing {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transform-origin: right;
+            animation: colorChange 30s linear infinite;
+        }
+
+        .glowing:nth-child(even) {
+            transform-origin: left;
+        }
+
+        @keyframes colorChange {
+            0% {
+                filter: hue-rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .glowing span {
+            position: absolute;
+            top: calc(80px * var(--i));
+            left: calc(80px * var(--i));
+            bottom: calc(80px * var(--i));
+            right: calc(80px * var(--i));
+        }
+
+        .glowing span::before {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #f00;
+            border-radius: 50%;
+        }
+
+        .glowing span:nth-child(3n + 1)::before {
+            background: rgba(134,255,0,1);
+            box-shadow: 0 0 20px rgba(134,255,0,1),
+                0 0 40px rgba(134,255,0,1),
+                0 0 60px rgba(134,255,0,1),
+                0 0 80px rgba(134,255,0,1),
+                0 0 0 8px rgba(134,255,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 2)::before {
+            background: rgba(255,214,0,1);
+            box-shadow: 0 0 20px rgba(255,214,0,1),
+                0 0 40px rgba(255,214,0,1),
+                0 0 60px rgba(255,214,0,1),
+                0 0 80px rgba(255,214,0,1),
+                0 0 0 8px rgba(255,214,0,.1);
+        }
+
+        .glowing span:nth-child(3n + 3)::before {
+            background: rgba(0,226,255,1);
+            box-shadow: 0 0 20px rgba(0,226,255,1),
+                0 0 40px rgba(0,226,255,1),
+                0 0 60px rgba(0,226,255,1),
+                0 0 80px rgba(0,226,255,1),
+                0 0 0 8px rgba(0,226,255,.1);
+        }
+
+        .glowing span:nth-child(3n + 1) {
+            animation: animate 10s alternate infinite;
+        }
+
+        .glowing span:nth-child(3n + 2) {
+            animation: animate-reverse 3s alternate infinite;
+        }
+
+        .glowing span:nth-child(3n + 3) {
+            animation: animate 8s alternate infinite; 
+        }
+
+        @keyframes animate {
+            0% { transform: rotate(180deg); }
+            50% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes animate-reverse {
+            0% { transform: rotate(360deg); }
+            50% { transform: rotate(180deg); }
+            100% { transform: rotate(0deg); }
+        }
+        body{
+            background-image: url('https://wallpapercave.com/wp/wp12818798.jpg');
+            background-size: cover;
+            font-family: 'Poppins', sans-serif; /* ENHANCED FONT */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container{
+            position: relative; 
+            overflow: hidden; 
+            z-index: 11;
+            padding: 50px;
+            width: 300px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.258);
+            border-radius: 18px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2{
+            margin-bottom: 30px; /* Increased margin for better spacing */
+            color: #a25fab;
+            text-transform: uppercase; /* ENHANCED */
+            letter-spacing: 2px; /* ENHANCED */
+            text-shadow: 0 0 4px rgba(200, 180, 200, 0.4); /* ENHANCED */
+        }
+        .input-group{
+            margin-bottom: 20px; /* Increased margin */
+            text-align: left;
+        }
+        label{
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: medium;
+            color: #b66ba8; /* ENHANCED: Lighter for better contrast */
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 300; /* ENHANCED: Lighter font weight */
+        }
+        input{
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            padding: 10px; /* Increased padding */
+            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.2); /* Added subtle background */
+            color: #ffffff; /* ENHANCED: White text for input */
+            font-size: 16px;
+        }
+        input:active, input:focus{
+            transform: scale(1.02);
+            outline: none;
+            box-shadow: 0 0 5px #8e2496;
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+        button{
+            width: 100%;
+            padding: 10px;
+            background-color: #8e24968e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 600; /* ENHANCED: Bolder text */
+            text-transform: uppercase; /* ENHANCED */
+            letter-spacing: 1px; /* ENHANCED */
+        }
+        button:hover{
+            background-color: #8e2496;
+        }
+        a {
+            display: block;
+            margin-top: 15px; 
+            color: #ccc; /* ENHANCED */
+            text-decoration: none; /* ENHANCED */
+            font-weight: 300; /* ENHANCED */
+            transition: color 0.3s; /* ENHANCED */
+        }
+        a:hover {
+            color: #ffffff; /* ENHANCED */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+        
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+        
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+        
+        <div class="glowing">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+
+        <form action="php/login.php" method="POST">
+            <h2>Login Form</h2>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <a href="./forget-password.html">Forget Password</a>
+            <a href="register.html">Register</a>
+        </form>
+    </div>
+    <script>
+        //login with admin and admin
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'Password123') {
+                event.preventDefault(); // Prevent form submission
+                alert('Login successful!');
+                // You can redirect to another page or perform other actions here
+            }
+        });
+        </script>
+</body>
+</html>
