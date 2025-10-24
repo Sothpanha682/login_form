@@ -241,6 +241,9 @@
                 event.preventDefault(); // Prevent form submission
                 alert('Login successful!');
                 // You can redirect to another page or perform other actions here
+            } else {
+                event.preventDefault(); // Prevent form submission
+                alert('Invalid username or password.');
             }
         });
         </script>
